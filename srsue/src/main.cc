@@ -608,6 +608,13 @@ static int parse_args(all_args_t* args, int argc, char* argv[])
   return SRSRAN_SUCCESS;
 }
 
+//---------------------------------------
+//SNIFFER: Create UE instance globally.
+static srsue::ue ue;
+static bool stopupload = false;
+//---------------------------------------
+
+
 static void* input_loop(void*)
 {
   string key;
@@ -639,6 +646,7 @@ static void* input_loop(void*)
       //SNIFFER: Get C-RNTI
       else{
         ue::msu_set_crnti(atoi(key));
+        stopupload = true;
       }
       //---------------------------------------
     }
@@ -652,10 +660,7 @@ static size_t fixup_log_file_maxsize(int x)
   return (x < 0) ? 0 : size_t(x) * 1024u;
 }
 
-//---------------------------------------
-//SNIFFER: Create UE instance globally.
-static srsue::ue ue;
-//---------------------------------------
+
 
 int main(int argc, char* argv[])
 {
