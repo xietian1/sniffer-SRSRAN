@@ -19,6 +19,10 @@
  *
  */
 
+//---------------------------------------
+//SNIFFER: include a new global file.
+#include "srsran/upper/sniffer_support.h"
+//---------------------------------------
 #include "srsran/common/common_helper.h"
 #include "srsran/common/config_file.h"
 #include "srsran/common/crash_handler.h"
@@ -611,7 +615,6 @@ static int parse_args(all_args_t* args, int argc, char* argv[])
 //---------------------------------------
 //SNIFFER: Create UE instance globally.
 static srsue::ue ue;
-static bool stopupload = false;
 //---------------------------------------
 
 
@@ -646,7 +649,7 @@ static void* input_loop(void*)
       //SNIFFER: Get C-RNTI
       else{
         ue::msu_set_crnti(atoi(key));
-        stopupload = true;
+        sniffer_support::setStopUploadStatus(); //set StopUploadStatus
       }
       //---------------------------------------
     }

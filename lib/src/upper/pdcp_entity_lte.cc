@@ -239,6 +239,17 @@ void pdcp_entity_lte::write_pdu(unique_byte_buffer_t pdu)
     enable_security_rx_sn = -1;
   }
 
+
+  //---------------------------------------
+  //SNIFFER: Test gloal getStopUploadStatus.
+  //---------------------------------------
+  bool check_status = sniffer_support::getStopUploadStatus();
+  if(check_status){
+    logger.info("sniffer_support::StopUploadStatus->True");
+  }else{
+    logger.info("sniffer_support::StopUploadStatus->False");
+  }
+
   logger.info(pdu->msg,
               pdu->N_bytes,
               "%s Rx PDU SN=%d (%d B, integrity=%s, encryption=%s)",
