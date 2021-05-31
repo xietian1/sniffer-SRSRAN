@@ -350,4 +350,12 @@ std::string ue::get_build_string()
   return ss.str();
 }
 
+//---------------------------------------
+//SNIFFER: set c-rnti
+void ue::msu_set_crnti(uint16_t rnti)
+{
+  return phy->set_crnti(rnti);
+}
+//---------------------------------------
+
 } // namespace srsue

@@ -109,6 +109,11 @@ public:
 
   void radio_overflow();
 
+  //---------------------------------------
+  //SNIFFER: set c-rnti
+  void ue::msu_set_crnti(uint16_t rnti);
+  //---------------------------------------
+
 private:
   // UE consists of a radio, a PHY and a stack element
   std::unique_ptr<ue_phy_base>        phy;

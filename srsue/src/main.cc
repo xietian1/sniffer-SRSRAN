@@ -634,6 +634,13 @@ static void* input_loop(void*)
         // let the signal handler do the job
         raise(SIGTERM);
       }
+
+      //---------------------------------------
+      //SNIFFER: Get C-RNTI
+      else{
+        ue::msu_set_crnti(atoi(key));
+      }
+      //---------------------------------------
     }
   }
   return nullptr;
@@ -644,6 +651,11 @@ static size_t fixup_log_file_maxsize(int x)
 {
   return (x < 0) ? 0 : size_t(x) * 1024u;
 }
+
+//---------------------------------------
+//SNIFFER: Create UE instance globally.
+static srsue::ue ue;
+//---------------------------------------
 
 int main(int argc, char* argv[])
 {
@@ -685,7 +697,7 @@ int main(int argc, char* argv[])
   srsran::check_scaling_governor(args.rf.device_name);
 
   // Create UE instance.
-  srsue::ue ue;
+  //srsue::ue ue;
   if (ue.init(args)) {
     ue.stop();
     return SRSRAN_SUCCESS;
