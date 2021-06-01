@@ -8,23 +8,40 @@
 #ifndef SRSRAN_SNIFFER_SUPPORT_H
 #define SRSRAN_SNIFFER_SUPPORT_H
 
-#endif // SRSRAN_SNIFFER_SUPPORT_H
 
 
-#include "srsue/hdr/ue.h"
-#include <boost/program_options.hpp>
-#include <boost/program_options/parsers.hpp>
-#include <iostream>
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-#include <unistd.h>
-
+//namespace sniffer_support {
 namespace srsran {
-  class sniffer_support
-  {
-    bool getStopUploadStatus();
-    bool setStopUploadStatus();
+
+//class sniffer_support
+//{
+//public:
+//  bool StopUploadStatus = false;
+//
+//  bool getStopUploadStatus();
+//  bool setStopUploadStatus();
+//
+//};
+//extern sniffer_support snifferSupport;
+
+//bool test_snif(){
+//  return false;
+//}
+
+
+bool StopUploadStatus = false;
+bool getStopUploadStatus() final
+{
+  return StopUploadStatus;
+}
+
+void setStopUploadStatus() final
+{
+  if(StopUploadStatus){
+    StopUploadStatus = false;
+  }else{
+    StopUploadStatus = true;
   }
 }
+}
+#endif // SRSRAN_SNIFFER_SUPPORT_H

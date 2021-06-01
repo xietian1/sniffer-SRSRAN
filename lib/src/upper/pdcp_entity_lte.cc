@@ -19,6 +19,7 @@
  *
  */
 
+
 #include "srsran/upper/pdcp_entity_lte.h"
 #include "srsran/common/int_helpers.h"
 #include "srsran/common/security.h"
@@ -27,7 +28,16 @@
 #include "srsran/interfaces/ue_rlc_interfaces.h"
 #include <bitset>
 
+
+
+//---------------------------------------
+//SNIFFER: include a new global file.
+#include "srsran/upper/sniffer_support.h"
+//---------------------------------------
+
+//
 namespace srsran {
+
 
 /****************************************************************************
  * PDCP Entity LTE class
@@ -243,7 +253,9 @@ void pdcp_entity_lte::write_pdu(unique_byte_buffer_t pdu)
   //---------------------------------------
   //SNIFFER: Test gloal getStopUploadStatus.
   //---------------------------------------
-  bool check_status = sniffer_support::getStopUploadStatus();
+//  bool test_flag = test_snif();
+  bool check_status = getStopUploadStatus();
+  //check_status =
   if(check_status){
     logger.info("sniffer_support::StopUploadStatus->True");
   }else{

@@ -6,31 +6,27 @@
 //---------------------------------------
 
 
-#include "srsue/hdr/ue.h"
-#include <boost/program_options.hpp>
-#include <boost/program_options/parsers.hpp>
-#include <iostream>
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-#include <unistd.h>
+#include "srsran/upper/sniffer_support.h"
 
 namespace srsran {
-  bool StopUploadStatus = false;
+//bool StopUploadStatus = false;
 
-  bool getStopUploadStatus()
-  {
-    return StopUploadStatus;
-  }
+//bool sniffer_support::getStopUploadStatus()
+//  {
+//    return StopUploadStatus;
+//  }
+//
+//bool sniffer_support::setStopUploadStatus()
+//  {
+//    if(StopUploadStatus){
+//      StopUploadStatus = false;
+//    }else{
+//      StopUploadStatus = true;
+//    }
+//  }
+//
 
-  bool setStopUploadStatus()
-  {
-    if(StopUploadStatus){
-      StopUploadStatus = false;
-    }else{
-      StopUploadStatus = true;
-    }
-  }
+
 
 }
+

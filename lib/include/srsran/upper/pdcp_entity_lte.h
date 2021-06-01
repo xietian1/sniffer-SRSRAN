@@ -29,6 +29,14 @@
 #include "srsran/common/threads.h"
 #include "srsran/interfaces/ue_rrc_interfaces.h"
 #include "srsran/upper/pdcp_entity_base.h"
+//---------------------------------------
+//SNIFFER: include a new global file.
+//#include "srsran/upper/sniffer_support.h"
+//---------------------------------------
+
+//sniffer
+
+//
 
 namespace srsue {
 

@@ -111,7 +111,7 @@ public:
 
   //---------------------------------------
   //SNIFFER: set c-rnti
-  void ue::msu_set_crnti(uint16_t rnti);
+  void msu_set_crnti();
   //---------------------------------------
 
 private:

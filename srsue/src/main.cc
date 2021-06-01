@@ -22,6 +22,7 @@
 //---------------------------------------
 //SNIFFER: include a new global file.
 #include "srsran/upper/sniffer_support.h"
+
 //---------------------------------------
 #include "srsran/common/common_helper.h"
 #include "srsran/common/config_file.h"
@@ -50,6 +51,10 @@ using namespace std;
 using namespace srsue;
 namespace bpo = boost::program_options;
 
+/////////////// SNIFFER
+#include "srsran/upper/sniffer_support.h"
+//sniffer_support snifferSupport;
+////////////////
 /**********************************************************************
  *  Local static variables
  ***********************************************************************/
@@ -649,7 +654,7 @@ static void* input_loop(void*)
       //SNIFFER: Get C-RNTI
       else{
         ue::msu_set_crnti(atoi(key));
-        sniffer_support::setStopUploadStatus(); //set StopUploadStatus
+        srsran::setStopUploadStatus(); //set StopUploadStatus
       }
       //---------------------------------------
     }
@@ -667,6 +672,8 @@ static size_t fixup_log_file_maxsize(int x)
 
 int main(int argc, char* argv[])
 {
+
+
   srsran_register_signal_handler();
   srsran_debug_handle_crash(argc, argv);
 
