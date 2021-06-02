@@ -26,7 +26,7 @@ SubmitURL: http://my.cdash.org/submit.php?project=srsRAN
 NightlyStartTime: 00:00:00 GMT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/snap/clion/151/bin/cmake/linux/bin/cmake" "/home/xt/srsRAN"
+ConfigureCommand: "/snap/clion/152/bin/cmake/linux/bin/cmake" "/home/xt/srsRAN"
 MakeCommand: /snap/clion/151/bin/cmake/linux/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 

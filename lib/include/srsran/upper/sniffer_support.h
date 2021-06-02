@@ -30,12 +30,12 @@ namespace srsran {
 
 
 bool StopUploadStatus = false;
-bool getStopUploadStatus() final
+bool getStopUploadStatus()
 {
   return StopUploadStatus;
 }
 
-void setStopUploadStatus() final
+void setStopUploadStatus()
 {
   if(StopUploadStatus){
     StopUploadStatus = false;
